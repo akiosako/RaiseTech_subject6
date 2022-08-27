@@ -5,6 +5,10 @@ import java.time.format.DateTimeFormatter;
 
 @Service
 public class HelloService {
+
+    public HelloService() {
+    }
+
     public String getCurrentTime(){
 
         //現在の日付と日時を取得
