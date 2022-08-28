@@ -8,15 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HelloController {
 
     private final HelloService service;
-
     public HelloController(HelloService service) {
         this.service = service;
     }
-
     @GetMapping("/hello")
-    public String hello(Model model){
+    public String hello(){
+        return "/hello";
+    }
+    @GetMapping("/response")
+    public String helloResponse(Model model){
         String currentTime = service.getCurrentTime();
         model.addAttribute("currentTime",currentTime);
-        return "hello";
+        return "/response";
     }
 }
