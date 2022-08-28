@@ -1,10 +1,9 @@
 package com.example.demo.hello;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HelloController {
 
     private final HelloService service;
@@ -13,12 +12,10 @@ public class HelloController {
     }
     @GetMapping("/hello")
     public String hello(){
-        return "/hello";
+        return "HelloWorld";
     }
     @GetMapping("/response")
-    public String helloResponse(Model model){
-        String currentTime = service.getCurrentTime();
-        model.addAttribute("currentTime",currentTime);
-        return "/response";
+    public String helloResponse(){
+        return service.getCurrentTime();
     }
 }
